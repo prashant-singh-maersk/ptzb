@@ -1,0 +1,15 @@
+@mixin tablet-landscape-desktop-only(){
+	@media only screen and (min-width:1023px) {
+            @content;
+        }
+}
+@mixin tablet-only(){
+	@media only screen and (min-width: 768px) and ( max-width:1024px) {
+		@content;
+	}
+}
+@mixin tablet-above(){
+	@media only screen and (min-width: 768px){
+		@content;
+	}
+}

@@ -1,0 +1,16 @@
+// vendor scss
+@import "vendor/bootstrap.scss";
+
+//mixins
+
+@import "mixins/breakpoints";
+
+//partials
+
+
+@import "reset";
+@import "variables";
+@import "fonts";
+@import "sprite";
+@import "common";
+@import "header";

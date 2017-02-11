@@ -1,0 +1,102 @@
+@import '../mixins/breakpoints';
+@import '../variables';
+@import '../fonts';
+
+body {
+    background: $body-background;
+    font-family: $base-font;
+    font-size: 15px;
+    color: #192732;
+    width: 100%;
+}
+#outer-wrap {
+    background: $outer-background;
+    overflow: hidden;
+}
+
+.absmiddle {
+    vertical-align: middle;
+}
+
+.absbottom {
+    vertical-align: bottom;
+}
+
+:focus {
+    outline: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.rel {
+    position: relative;
+}
+
+.none {
+    display: none;
+}
+
+.padding_zero {
+    padding: 0 !important;
+}
+
+.margin_zero {
+    margin: 0 !important;
+}
+
+.margin_bottom_zero {
+    margin-bottom: 0 !important;
+}
+
+.border_none {
+    border: none !important;
+}
+
+.display_none {
+    display: none;
+}
+
+.display {
+    display: block;
+}
+
+img {
+    border-style: none;
+}
+
+a {
+    outline: none;
+    color: $anchor-color;
+    text-decoration: none;
+}
+
+a:hover {
+    color: $pitzob-red;
+    text-decoration: none;
+    transition: all 0.9s ease;
+    -webkit-transition: all 0.9s ease;
+    -moz-transition: all 0.9s ease;
+    -o-transition: all 0.2s ease-in-out 0s;
+    -ms-transition: all 0.2s ease-in-out 0s;
+}
+
+.container {
+    max-width: 1003px;
+}
+.glyphicon{
+    font-size: 11px;
+}

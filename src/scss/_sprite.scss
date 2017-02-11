@@ -1,0 +1,41 @@
+.sprite {
+    background-image: url($base-spritesheet);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-android {
+    width: 79px;
+    height: 28px;
+    background-position: -5px -5px;
+}
+
+.sprite-ios {
+    width: 79px;
+    height: 28px;
+    background-position: -5px -43px;
+}
+
+.sprite-nav-icon {
+    width: 23px;
+    height: 15px;
+    background-position: -5px -81px;
+}
+
+.sprite-white-fb {
+    width: 36px;
+    height: 36px;
+    background-position: -94px -5px;
+}
+
+.sprite-white-gplus {
+    width: 36px;
+    height: 36px;
+    background-position: -94px -51px;
+}
+
+.sprite-white-twitter {
+    width: 36px;
+    height: 36px;
+    background-position: -38px -97px;
+}

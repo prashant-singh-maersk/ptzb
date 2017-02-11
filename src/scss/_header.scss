@@ -1,0 +1,103 @@
+#header-wrapper{
+    position:fixed;
+    width:100%;
+    z-index: 1000;
+    height: 60px;
+    background: transparent;
+    transition: background 500ms ease-in;
+    transform: translate3d(0,0,0);
+}
+.scrolling #header-wrapper{
+    background: rgba(0, 0, 0, 0.9);
+    transition: background 500ms ease-in;
+}
+#top {
+    z-index: 100;
+    position: relative;
+    color: $white;
+    background: $white;
+    background: transparent;
+}
+#top .nav-btn {
+    margin: 15px 0 0 0;
+    top: 1.5em;
+    left: 1.875em;
+    max-width: 50px;
+    float: left;
+}
+.logo img {
+    margin: 14px 0 0;
+    width: 105px;
+}
+.header-menu .btn-group {
+    border: none;
+    float: left;
+    margin: 4px 10px 0px 10px;
+    padding: 15px 5px;
+}
+.btn-group a {
+    display: inline-block;
+    font-size: 14px;
+    color: white;
+    text-transform: uppercase;
+    transition: color 500ms ease-in;
+}
+.btn-group a:hover {
+    color: $pitzob-red;
+    transition: color 500ms ease-in;
+}
+.header-menu .btn.btn-default.dropdown-toggle {
+    box-shadow: none;
+    margin: 0;
+}
+.header-menu .open .btn.btn-default.dropdown-toggle{
+    background: none;
+    border: 0 none;
+}
+.header-menu .btn.btn-default {
+    background: transparent;
+    border: medium none;
+    color: #69696b;
+    font-size: 17px;
+    padding: 0;
+    line-height: inherit;
+}
+.btn .caret {
+    margin-left: 5px;
+    margin-bottom: 2px;
+}
+.get-quote .nav-link {
+    border: 1px solid $white;
+    padding: 0 14px;
+    border-radius: 15px;
+    background: transparent;
+    transition: all 500ms ease-in;
+}
+.get-quote .nav-link:hover{
+    
+    border: 1px solid $pitzob-red;
+    transition: all 500ms ease-in; 
+}
+.header-image {
+    max-height: 30px;
+    max-width: 30px;
+    border-radius: 50%;
+}
+.btn-group a img {
+    height: 30px;
+    margin-right: 5px;
+    margin-left: 7px;
+}
+@media only screen and (min-width: 1000px){
+    #header-wrapper{
+        height: 80px;
+    }
+
+    .logo img {
+        margin: 14px 0 5px;
+        width: 145px;
+    }
+    .header-menu .btn-group {
+        margin: 14px 10px 0px 10px;
+    }
+}
