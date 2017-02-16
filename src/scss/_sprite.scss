@@ -1,41 +1,90 @@
-.sprite {
-    background-image: url($base-spritesheet);
-    background-repeat: no-repeat;
-    display: block;
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$service-white-web-name: 'service_white_web';
+$service-white-web-x: 0px;
+$service-white-web-y: 0px;
+$service-white-web-offset-x: 0px;
+$service-white-web-offset-y: 0px;
+$service-white-web-width: 56px;
+$service-white-web-height: 56px;
+$service-white-web-total-width: 56px;
+$service-white-web-total-height: 56px;
+$service-white-web-image: '../images/sprite/sprite.png';
+$service-white-web: (0px, 0px, 0px, 0px, 56px, 56px, 56px, 56px, '../images/sprite/sprite.png', 'service_white_web', );
+$spritesheet-width: 56px;
+$spritesheet-height: 56px;
+$spritesheet-image: '../images/sprite/sprite.png';
+$spritesheet-sprites: ($service-white-web, );
+$spritesheet: (56px, 56px, '../images/sprite/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
 }
 
-.sprite-android {
-    width: 79px;
-    height: 28px;
-    background-position: -5px -5px;
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
 }
 
-.sprite-ios {
-    width: 79px;
-    height: 28px;
-    background-position: -5px -43px;
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
 }
 
-.sprite-nav-icon {
-    width: 23px;
-    height: 15px;
-    background-position: -5px -81px;
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
 }
 
-.sprite-white-fb {
-    width: 36px;
-    height: 36px;
-    background-position: -94px -5px;
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
 }
 
-.sprite-white-gplus {
-    width: 36px;
-    height: 36px;
-    background-position: -94px -51px;
-}
-
-.sprite-white-twitter {
-    width: 36px;
-    height: 36px;
-    background-position: -38px -97px;
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
 }

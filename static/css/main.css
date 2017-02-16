@@ -1,4 +1,47 @@
 @charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -6403,90 +6446,12 @@ button.close {
     display: none !important; } }
 
 /*# sourceMappingURL=bootstrap.css.map */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline; }
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block; }
-
-body {
-  line-height: 1; }
-
-ol, ul {
-  list-style: none; }
-
-blockquote, q {
-  quotes: none; }
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
 @font-face {
   font-family: "Conv_Corbel";
   src: url("../fonts/Corbel.eot");
   src: local("☺"), url("../fonts/Corbel.woff") format("woff"), url("../fonts/Corbel.ttf") format("truetype"), url("../fonts/Corbel.svg") format("svg");
   font-weight: normal;
   font-style: normal; }
-
-.sprite {
-  background-image: url("../images/spritesheet.png");
-  background-repeat: no-repeat;
-  display: block; }
-
-.sprite-android {
-  width: 79px;
-  height: 28px;
-  background-position: -5px -5px; }
-
-.sprite-ios {
-  width: 79px;
-  height: 28px;
-  background-position: -5px -43px; }
-
-.sprite-nav-icon {
-  width: 23px;
-  height: 15px;
-  background-position: -5px -81px; }
-
-.sprite-white-fb {
-  width: 36px;
-  height: 36px;
-  background-position: -94px -5px; }
-
-.sprite-white-gplus {
-  width: 36px;
-  height: 36px;
-  background-position: -94px -51px; }
-
-.sprite-white-twitter {
-  width: 36px;
-  height: 36px;
-  background-position: -38px -97px; }
 
 body {
   background: #f9f9f9;
@@ -6567,6 +6532,12 @@ a:hover {
 
 .glyphicon {
   font-size: 11px; }
+
+.service_white_web {
+  background-image: url(../images/sprite/sprite.png);
+  background-position: 0px 0px;
+  width: 56px;
+  height: 56px; }
 
 #header-wrapper {
   position: fixed;

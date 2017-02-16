@@ -1,4 +1,7 @@
+@import "reset";
+
 // vendor scss
+
 @import "vendor/bootstrap.scss";
 
 //mixins
@@ -7,8 +10,6 @@
 
 //partials
 
-
-@import "reset";
 @import "variables";
 @import "fonts";
 @import "sprite";

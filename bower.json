@@ -1,7 +1,8 @@
 {
   "name": "pitzop-reformed",
   "description": "infoedge new app",
-  "main": "index.js",
+  "moduleType": ["node"],
+  "main": "main.js",
   "authors": [
     "prashant shekhar singh"
   ],

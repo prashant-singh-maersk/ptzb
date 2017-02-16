@@ -9,11 +9,15 @@
   "author": "prashant shekhar singh",
   "license": "ISC",
   "devDependencies": {
+    "bower-requirejs": "^1.2.0",
     "browser-sync": "^2.18.7",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
+    "gulp-requirejs": "^1.0.0-rc1",
+    "gulp-requirejs-optimize": "^1.2.0",
     "gulp-sass": "^3.1.0",
     "gulp-strip-comments": "^2.4.3",
-    "gulp.spritesmith": "^6.3.0"
+    "gulp.spritesmith": "^6.3.0",
+    "requirejs": "^2.3.2"
   }
 }
