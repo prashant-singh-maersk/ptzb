@@ -4,6 +4,7 @@
 
 @import "vendor/bootstrap.scss";
 
+
 //mixins
 
 @import "mixins/breakpoints";
@@ -14,4 +15,5 @@
 @import "fonts";
 @import "sprite";
 @import "common";
-@import "header";
+@import "custom_v10";
+@import "vendor/owl.carousel.scss";

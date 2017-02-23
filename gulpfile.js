@@ -6,6 +6,8 @@
         strip = r('gulp-strip-comments'),
         sprite = r('gulp.spritesmith'),
         requireJsOptimize = r('gulp-requirejs-optimize'),
+        imageop = r('gulp-imagemin'),
+        cssBase64 = r('gulp-css-base64'),
         options = {
             config: 'scripts/config.js',
             exclude: ['underscore', 'jquery'],
@@ -20,12 +22,14 @@
             src: {
                 sass: base.src + 'scss/**/*.scss',
                 js: base.src + 'js/**/*.js',
-                spriteImg: base.src + 'images/sprite/*.png'
+                spriteImg: base.src + 'images/sprite/*.{png,jpg}',
+                img: base.src + 'images/*.{jpg,png}'
             },
             dist: {
                 css: base.dist + 'css',
                 js: base.dist + 'js',
-                spriteImg: base.dist + 'images/sprite'
+                spriteImg: base.dist + 'images/sprite',
+                img: base.dist + 'images'
             },
             html: base.html + '*.html',
 
@@ -38,13 +42,24 @@
 
 
     //tasks
+    gulp.task('base64',['css'], function() {
+        return gulp.src('static/css/main.css')
+            .pipe(cssBase64({
+                extensionsAllowed: ['.png', '.jpg']
+            }))
+            .pipe(gulp.dest(paths.dist.css+'/base'))
+            .pipe(scss({ outputStyle: 'compressed' }))
+            .pipe(rename({ suffix: '.min' }))
+            .pipe(gulp.dest(paths.dist.css + '/base'));
+    });
 
-    gulp.task('requirejsBuild', function() {
+    gulp.task('js', function() {
         return gulp.src(paths.main.js)
             .pipe(requireJsOptimize({
-                baseUrl:'src/js',
-                mainConfigFile:'./src/js/config.js'
-                }))
+                baseUrl: 'src/js',
+                mainConfigFile: 'src/js/main.js',
+                preserveLicenseComments: false
+            }))
             .pipe(gulp.dest(paths.dist.js)); // pipe it to the output DIR
     });
 
@@ -73,7 +88,17 @@
             .pipe(gulp.dest(paths.dist.css));
     });
 
-    gulp.task('js-watch', function(done) {
+    gulp.task('image-optimize', function() {
+        gulp.src(paths.src.img)
+            .pipe(imageop({
+                optimizationLevel: 5,
+                progressive: true,
+                interlaced: true
+            }))
+            .pipe(gulp.dest(paths.dist.img))
+    });
+
+    gulp.task('js-watch', ['js'], function(done) {
         browserSync.reload();
         done();
     });
@@ -91,17 +116,19 @@
         browserSync.reload();
         done();
     });
-
-    gulp.task('all-watch', ['css-watch', 'html-watch', 'js-watch', 'sprite-watch']);
-
-    gulp.task('default', ['css','requirejsBuild'], function() {
+    gulp.task('default', ['css', 'js','base64'], function() {
         browserSync.init(null, {
             server: {
                 baseDir: "./",
                 index: 'html/index.html'
             }
         });
-        gulp.watch([paths.src.sass, paths.html, paths.src.js, paths.src.spriteImg], ['all-watch']);
+        gulp.watch([paths.src.sass], ['css-watch']);
+        gulp.watch([paths.html], ['html-watch']);
+        gulp.watch([paths.src.js], ['js-watch']);
+        gulp.watch([paths.src.spriteImg], ['sprite-watch']);
     });
+    
+    gulp.task('build',['css','js','image-optimize','base64']);
 
 }(require));

@@ -1,7 +1,9 @@
 {
   "name": "pitzop-reformed",
   "description": "infoedge new app",
-  "moduleType": ["node"],
+  "moduleType": [
+    "node"
+  ],
   "main": "main.js",
   "authors": [
     "prashant shekhar singh"
@@ -17,7 +19,8 @@
   ],
   "devDependencies": {
     "jquery": "^3.1.1",
-    "owl-carousel": "^1.3.2",
-    "requirejs": "^2.3.2"
+    "requirejs": "^2.3.2",
+    "jquery_lazyload": "jquery.lazyload#^1.9.7",
+    "owl.carousel": "^2.2.0"
   }
 }

@@ -14,8 +14,6 @@
     <meta name="og:image" content="../static/images/logo-main.png">
     <meta name="og:description" content="Pitzop: Find Car Accessories, Car Service Centers, List of shops for selling batteries, tyres &amp; fuel stations online nearby you. on Pitzop">
     <meta name="apple-itunes-app" content="app-id=1149253393">
-    <link rel="icon" href="../static/images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../static/css/owl.carousel.css" />
     <link rel="stylesheet" type="text/css" href="../static/css/main.css" />
     <!--[if (gt IE 8) | (IEMobile)]><!-->
     <!--<![endif]-->
@@ -30,7 +28,7 @@
         <![endif]-->
     <!-- end of common scripts and css -->
     <link rel="canonical" href="https://www.pitzop.com/">
-    <script>
+    <!-- <script>
     (function(i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] || function() {
@@ -42,19 +40,57 @@
         a.src = g;
         m.parentNode.insertBefore(a, m)
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
+    
     ga('create', 'UA-78394008-8', 'auto');
     ga('send', 'pageview');
-    </script>
+    </script> -->
+    <style>
+    .tabbed-menu {
+        padding: 0 15px;
+    }
+    
+    .frame {
+        float: left;
+        padding: 0 15px;
+    }
+    
+    .tabbed-frame {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 50px;
+        background: red;
+    }
+    
+    .plug {
+        position: relative;
+    }
+    
+    .tabbed-menu.active {
+        color: green;
+        background: red;
+    }
+    .tabbed-frame.active{
+        z-index: 100;
+    }
+    </style>
 </head>
 
-<body>
+<body class="scrolling">
     <div id="remoteModal" class="modal fade" tabindex="-1" role="dialog">
         <div id="remoteModalDoc" class="modal-dialog" role="document">
             <div class="modal-content" id="remoteModalContent">pz</div>
         </div>
     </div>
-    <div id="outer-wrap">
+    <ul class="plug">
+        <li>1001</li>
+        <li>1002</li>
+        <li>1003</li>
+        <li>1004</li>
+        <li>1005</li>
+        <li>1006</li>
+    </ul>
+    <div id="outer-wrap" style="display: none;">
         <div id="inner-wrap" class="clearfix">
             <div id="header-wrapper">
                 <header id="top" role="banner">
@@ -108,8 +144,8 @@
                             </div>
                             <div class="col-xs-12 col-sm-4 col-md-5">
                                 <div class="header-menu">
-                                    <div class="btn-group" role="group">
-                                        <a class="nav-link" href="/quotes/add">BLOG</a>
+                                    <div class="btn-group search_icon" role="group">
+                                        <a class="nav-link searchIcon" href="javascrit:void(0)"><span class="glyphicon glyphicon-search"></span></a>
                                     </div>
                                     <div class="btn-group get-quote" role="group">
                                         <a class="nav-link" href="/quotes/add">GET A QUOTE</a>
@@ -175,649 +211,657 @@
                     </div>
                 </header>
             </div>
-            <div id="homepage" class="hp-banner">
-                <div class="container">
-                    <div class="banner-content">
-                        <div class="row">
-                            <div class="home-header">
-                                <h1 class="sr-only">Service Centers, Batteries, Tyres and Car Accessories Online</h1>
-                                <img class="animate love-car" src="../static/images/love.png">
-                                <img class="animate car" src="../static/images/car(1).png">
-                                <img class="animate love-text" src="../static/images/forloveofautomobile.png">
+            <main class="clearfix">
+                <div id="homepage" class="hp-banner">
+                    <div class="container">
+                        <div class="banner-content">
+                            <div class="row">
+                                <div class="home-header">
+                                    <h1 class="sr-only">Service Centers, Batteries, Tyres and Car Accessories Online</h1>
+                                    <img class="animate love-car" src="../static/images/love.png">
+                                    <img class="animate car" src="../static/images/car(1).png">
+                                    <img class="animate love-text" src="../static/images/forloveofautomobile.png">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="home-search">
+                                    <div class="searchBox">
+                                        <form id="searchForm" method="get" class="searchForm ">
+                                            <div class="header-select">
+                                                <div class="input-group">
+                                                    <span class="input-group-btn">
+                                                        <button id="currLocation" class="currLocation btn btn-default" type="button">
+                                                            <span class="glyphicon glyphicon-map-marker" title="detect current location" aria-hidden="true"></span>
+                                                    </button>
+                                                    </span>
+                                                    <input class="form-control location_suggetion" id="location" type="text" placeholder="location" name="location" value="Delhi NCR" />
+                                                </div>
+                                            </div>
+                                            <div class="header-input">
+                                                <div class="input-group">
+                                                    <input class="form-control" id="suggest" type="text" placeholder="Find anything for your car even fuel stations" name="q" value="" />
+                                                    <span class="input-search input-group-btn">
+                                                        <button class="search btn btn-default" type="submit">Search</button>
+                                                    </span>
+                                                </div>
+                                                <!-- /input-group -->
+                                            </div>
+                                            <input id="city" type="hidden" name="city" value="ncr">
+                                            <input id="lat" type="hidden" name="lat" value="">
+                                            <input id="long" type="hidden" name="lon" value="">
+                                            <input class="pageNo" type="hidden" name="p" value="1">
+                                        </form>
+                                    </div>
+                                    <div class="popular-search clearfix">
+                                        <div class="popular">
+                                            <label>Popular Searches : </label>
+                                            <p><a href="#">service centers in noida</a><a>battery shop in gurgaon</a><a>i 10 accessories</a></p>
+                                        </div>
+                                        <div class="recent">
+                                            <label>Recent Searches : </label>
+                                            <p><a>Honda showroom</a><a>Suzuki Service center</a><a>Suzuki Service center</a><a>Suzuki Service center</a><a>Service center</a></p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="srp-navigation-wrapper">
+                        <div class="container">
+                            <ul class="srp-navigation">
+                                <li>
+                                    <a href="">
+                                        <img src="../static/images/fuel_white_web.png">
+                                        <p class="srp-title">Fuel</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="../static/images/batteries_white_web.png">
+                                        <p class="srp-title">Battery</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="../static/images/wheels_white_web.png">
+                                        <p class="srp-title">Wheels</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="../static/images/service_white_web.png">
+                                        <p class="srp-title">Service</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="../static/images/accessories_white_web.png">
+                                        <p class="srp-title">Accessories</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="../static/images/breakdown_white_web.png">
+                                        <p class="srp-title">Breakdown</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="homepage-coupon-section">
+                    <div class="container">
                         <div class="row">
-                            <div class="home-search">
-                                <div class="searchBox">
-                                    <form id="searchForm" method="get" class="searchForm ">
-                                        <div class="header-select">
-                                            <div class="input-group">
-                                                <span class="input-group-btn">
-                                                    <button id="currLocation" class="currLocation btn btn-default" type="button">
-                                                        <span class="glyphicon glyphicon-map-marker" title="detect current location" aria-hidden="true"></span>
-                                                </button>
-                                                </span>
-                                                <input class="form-control location_suggetion" id="location" type="text" placeholder="location" name="location" value="Delhi NCR" />
+                            <div class="featured-deals">
+                                <h4 class="deals-heading">Featured Deals</h4>
+                                <p class="deals-sub-heading">save on the go by claming our awesome deals</p>
+                                <span class="underline"></span>
+                                <ul class="pitzop-carousel owl-carousel clearfix">
+                                    <li class="">
+                                        <a href="">
+                                            <div class="deal-slide washing">
+                                                <p class="offer-name">City Motors & services</p>
+                                                <span class="flat-discount flat">Rs 200 Off</span>
+                                                <div class="coupon-detail-wrapper">
+                                                    <p class="coupon-detail">Flat discount on car washing</p>
+                                                    <p class="coupon-location">Sector 10, Noida</p>
+                                                    <p class="terms-condition">*T&C Apply</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="">
+                                            <div class="deal-slide polishing">
+                                                <p class="offer-name">City Motors & services</p>
+                                                <span class="flat-discount percentage">20% OFF</span>
+                                                <div class="coupon-detail-wrapper">
+                                                    <p class="coupon-detail">Flat discount on car washing</p>
+                                                    <p class="coupon-location">Sector 10, Noida</p>
+                                                    <p class="terms-condition">*T&C Apply</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="">
+                                            <div class="deal-slide coating">
+                                                <p class="offer-name">City Motors & services</p>
+                                                <span class="flat-discount flat">20% OFF</span>
+                                                <div class="coupon-detail-wrapper">
+                                                    <p class="coupon-detail">Flat discount on car washing</p>
+                                                    <p class="coupon-location"><span class=""></span>Sector 10, Noida</p>
+                                                    <p class="terms-condition">*T&C Apply</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="">
+                                            <div class="deal-slide washing">
+                                                <p class="offer-name">City Motors & services</p>
+                                                <span class="flat-discount flat">20% OFF</span>
+                                                <div class="coupon-detail-wrapper">
+                                                    <p class="coupon-detail">Flat discount on car washing</p>
+                                                    <p class="coupon-location"><span class=""></span>Sector 10, Noida</p>
+                                                    <p class="terms-condition">*T&C Apply</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-us-section">
+                    <div class="container">
+                        <div class="row">
+                            <h4 class="deals-heading">About Us</h4>
+                            <p class="about-detail">At Pitzop, Our mission is to simplify automobile up-keep by enabling handshake between automobile owners and service providers. At Pitzop, Our mission is to simplify automobile up-keep by enabling handshake between automobile owners and service providers. At Pitzop, Our mission is to simplify automobile up-keep by enabling handshake between automobile owners and service providers. At Pitzop, Our mission is to simplify automobile up-keep by enabling handshake between automobile owners and service providers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="sectional-grid">
+                    <div class="container">
+                        <div class="row">
+                            <h4 class="deals-heading">Find</h4>
+                            <p class="deals-sub-heading">Search Easily for providers of car service repair, accessories, wheels, batteries and fuel stations</p>
+                            <span class="underline"></span>
+                            <div class="sectional-navigation">
+                                <ul class="clearfix">
+                                    <li><a class="active" href="#">Featured</a></li>
+                                    <li><a href="#">Service & Repair</a></li>
+                                    <li><a href="#">Fuel</a></li>
+                                    <li><a href="#">Wheels</a></li>
+                                    <li><a href="#">Accessories</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-section">
+                                <div class="midWrpper active">
+                                    <div class="featured_ervices">
+                                        <div class="container">
+                                            <div class="services">
+                                                <div class="row">
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/fuel-stations">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/fuel-stations">
+                                                                    <img width="75px" class="" data-original="../static/images/icons/fuel_station.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Fuel Stations</h2>
+                                                            <p>Locate your nearest Fuel Stations</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/towing">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-services/towing">
+                                                                    <img width="75px" class="" data-original="../static/images/ic2.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Towing</h2>
+                                                            <p>Stuck on road with a broken car? Get towing services</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/tyre-puncture-repair">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-services/tyre-puncture-repair">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/tyre_puncture.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Tyre Puncture Repair</h2>
+                                                            <p>Locate service shops to fix your flat tyre</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/full-car-service">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-services/full-car-service">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/full_car_service.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Full Car Service</h2>
+                                                            <p>Give your car the service it deserves!</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="header-input">
-                                            <div class="input-group">
-                                                <input class="form-control" id="suggest" type="text" placeholder="Find anything for your car even fuel stations" name="q" value="" />
-                                                <span class="input-search input-group-btn">
-                                                    <button class="search btn btn-default" type="submit">Search</button>
-                                                </span>
-                                            </div>
-                                            <!-- /input-group -->
-                                        </div>
-                                        <input id="city" type="hidden" name="city" value="ncr">
-                                        <input id="lat" type="hidden" name="lat" value="">
-                                        <input id="long" type="hidden" name="lon" value="">
-                                        <input class="pageNo" type="hidden" name="p" value="1">
-                                    </form>
+                                    </div>
                                 </div>
-                                <div class="popular-search clearfix">
-                                    <div class="popular"><label>Popular Searches : </label>
-                                    <p><a href="#">service centers in noida</a><a>battery shop in gurgaon</a><a>i 10 accessories</a></p></div>
-                                    <div class="recent"><label>Recent Searches : </label>
-                                    <p><a>Honda showroom</a><a>Suzuki Service center</a><a>Suzuki Service center</a><a>Suzuki Service center</a><a>Service center</a></p></div>
+                                <div class="midWrpper">
+                                    <div class="featured_ervices">
+                                        <div class="container">
+                                            <div class="services">
+                                                <div class="row">
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/denting-painting">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-services/denting-painting">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/denting.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Denting/Painting</h2>
+                                                            <p>Fix scratches and dents on your vehicle</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/ac-repair">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-services/ac-repair">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/ac_repair.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>AC Repair</h2>
+                                                            <p>Locate service centres to fix your car's air conditioning</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/car-wash">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-services/car-wash">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/car_wash.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Car Wash</h2>
+                                                            <p>Find car washing services nearby!</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/cng-fitting---repairs">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-services/cng-fitting---repairs">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/cng_fitting.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>CNG Fitting & Repairs</h2>
+                                                            <p>Explore CNG fitting and repair services near you</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/full-car-service">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-services/full-car-service">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/full_car_service.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Full Car Service</h2>
+                                                            <p>Give your car the service it deserves!</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/teflon-coating">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-services/teflon-coating">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/teflon.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Teflon Coating</h2>
+                                                            <p>Protect your car's painted finish and brilliant shine</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/mechanical-repairs">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-services/mechanical-repairs">
+                                                                    <img width="75px" class=d ata-original="https:../images/icons/mechanical.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Mechanical Repairs</h2>
+                                                            <p>For all mechanical jobs to put your car back in shape</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/accidental-repairs">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-services/accidental-repairs">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/accidental.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Accidental Repairs</h2>
+                                                            <p>Got an injured car? Locate nearest repair centres</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="midWrpper">
+                                    <div class="featured_ervices">
+                                        <div class="container">
+                                            <div class="services">
+                                                <div class="row">
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/car-interiors">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-accessories/car-interiors">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/car_interiors.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Car Interiors</h2>
+                                                            <p>Add fancy accessories to improve your car interiors</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/stereo-systems">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-accessories/stereo-systems">
+                                                                    <img width="75px" class="" data-original="../static/images/accessory.jpg" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Stereo Systems</h2>
+                                                            <p>For the love of music on the go</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/seat-covers">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-accessories/seat-covers">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/seat_covers.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Seat Covers</h2>
+                                                            <p>Get elegant seat covers for your car</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/central-locking-system">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-accessories/central-locking-system">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/central_locking_system.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Central Locking System</h2>
+                                                            <p>Secure your car from potential threats</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/fog-lamps">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-accessories/fog-lamps">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/fog_lamps.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Fog Lamps</h2>
+                                                            <p>Increase driver's visibility range ahead of the car</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/led-lights">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-accessories/led-lights">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/led_lights.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>LED Lights</h2>
+                                                            <p>Upgrade your vehicle's Lighting with LED headlights</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/floor-mats">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-accessories/floor-mats">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/floor_mats.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Floor Mats</h2>
+                                                            <p>Protect the floor of your car from dirt and salt corrosion</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/gear-locks">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-accessories/gear-locks">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/gear_locks.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Gear Locks</h2>
+                                                            <p>Enhance your car security with gear locks</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="midWrpper">
+                                    <div class="featured_ervices">
+                                        <div class="container">
+                                            <div class="services">
+                                                <div class="row">
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/alloy-wheels">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-accessories/alloy-wheels">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/alloy_wheels.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Alloy Wheels</h2>
+                                                            <p>Enhance your car's handling and steering precision</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/new-tyres">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-accessories/new-tyres">
+                                                                    <img width="75px" class="" data-original="../images/icons/new_tyres.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>New Tyres</h2>
+                                                            <p>Buy tube/tubeless tyres for your car</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/wheel-balancing-alignment">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-services/wheel-balancing-alignment">
+                                                                    <img width="75px" class="" data-original="../images/icons/wheel_balancing.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Wheel Balancing/Alignment</h2>
+                                                            <p>Extend the service life of tyres and smoother ride experience</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/tyre-puncture-repair">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-services/tyre-puncture-repair">
+                                                                    <img width="75px" class="" data-original="../images/icons/tyre_puncture.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Tyre Puncture Repair</h2>
+                                                            <p>Get services to fix your flat tyre</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="midWrpper">
+                                    <div class="featured_ervices">
+                                        <div class="container">
+                                            <div class="services">
+                                                <div class="row">
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/petrol-diesel">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/petrol-diesel">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/petrol_diesel.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Petrol/Diesel</h2>
+                                                            <p>Locate your nearest Petrol/Diesel Filling Stations</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/cng-stations">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/cng-stations">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/cng.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>CNG</h2>
+                                                            <p>Locate your nearest CNG Filling Stations</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/puc">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/puc">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/puc.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>PUC</h2>
+                                                            <p>Pollution Under Control Certificate Services</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/nitrogen-gas-filling">
+                                                        <div class="serviceBox">
+                                                            <div class="serviceIcon">
+                                                                <a href="/ncr/car-services/nitrogen-gas-filling">
+                                                                    <img width="75px" class="" data-original="https:../images/icons/nitrogen.png" alt="icon" />
+                                                                </a>
+                                                            </div>
+                                                            <h2>Nitrogen Gas Filling</h2>
+                                                            <p>Nitrogen Gas Filling Services</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="srp-navigation-wrapper">
+                <div class="partner-section">
                     <div class="container">
-                        <ul class="srp-navigation">
+                        <div class="row">
+                            <div class="partner-inner">
+                                <h4 class="deals-heading">Ours Partners</h4>
+                                <div class="partner-wrapper owl-carousel owl-loaded">
+                                    <div class="partner">
+                                        <a href="#"><img class="" src="../static/images/allianz_logo.png" /></a>
+                                    </div>
+                                    <div class="partner">
+                                        <a href="#"><img src="../static/images/carnation_logo.png" /></a>
+                                    </div>
+                                    <div class="partner">
+                                        <a href="#"><img class="" src="../static/images/express_logo.png" /></a>
+                                    </div>
+                                    <div class="partner">
+                                        <a href="#"><img class="" src="../static/images/crossroads_logo.png" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-listing">
+                    <div class="container">
+                        <div class="row">
+                            <h5 class="deals-heading">Add your listing</h5>
+                            <p>Join thousands of other shop owners who benefit from having their listing on <strong>pitzop</strong> directory</p>
+                            <button class="pit-button">ADD MY LISTING</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="secondary-footer">
+                    <div class="container">
+                        <div class="footer-image">
+                            <img src="../static/images/screenshot_web.png">
+                        </div>
+                        <div class="footer-info">
+                            <h5 class="get-the-app">Get the app</h5>
+                            <p>Choose your native platform and get started !!</p>
+                            <div class="store-image">
+                                <a href=""><img src="../static/images/appstore.png" /></a>
+                                <a href=""><img src="../static/images/googleplay.png" /></a>
+                            </div>
+                            <p>Or enter your mobile number and we will send you download link</p>
+                            <div class="user-contact">
+                                <input type="number" name="contact" min="1" max="5" placeholder="Enter mobile number">
+                                <input type="button" value="SEND" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="footer">
+                <div class="footer-upper">
+                    <div class="container">
+                        <ul class="company">
+                            <h6>Company</h6>
+                            <li><a href="">About Us</a></li>
+                            <li><a href="">Contact Us</a></li>
+                            <li><a href="">Privacy</a></li>
+                            <li><a href="">Terms</a></li>
+                        </ul>
+                        <ul class="quick-links">
+                            <h6>Quick Links</h6>
+                            <li><a href="">maruti suzuki authorized service centers</a></li>
+                            <li><a href="">Hyundai Authorized service centers</a></li>
+                            <li><a href="">maruti suzuki authorized service centers</a></li>
+                            <li><a href="">Hyundai Authorized service centers</a></li>
+                            <li><a href="">maruti suzuki authorized service centers</a></li>
+                            <li><a href="">Hyundai Authorized service centers</a></li>
+                            <li><a href="">maruti suzuki authorized service centers</a></li>
+                            <li><a href="">Hyundai Authorized service centers</a></li>
+                        </ul>
+                        <ul class="cities">
+                            <h6>Cities</h6>
+                            <li><a href="">Delhi</a></li>
+                            <li><a href="">Noida</a></li>
+                            <li><a href="">Gurugram</a></li>
+                            <li><a href="">Banglore</a></li>
+                            <li><a href="">Delhi</a></li>
+                            <li><a href="">Noida</a></li>
+                            <li><a href="">Gurugram</a></li>
+                            <li><a href="">Banglore</a></li>
+                        </ul>
+                        <ul class="download store-image">
+                            <h6>Download App</h6>
                             <li>
-                                <a href="">
-                                    <img src="../static/images/fuel_white_web.png">
-                                    <p class="srp-title">Fuel</p>
-                                </a>
+                                <a href=""><img src="../static/images/appstore.png" /></a>
                             </li>
                             <li>
-                                <a href="">
-                                    <img src="../static/images/batteries_white_web.png">
-                                    <p class="srp-title">Battery</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="../static/images/wheels_white_web.png">
-                                    <p class="srp-title">Wheels</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="../static/images/service_white_web.png">
-                                    <p class="srp-title">Service</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="../static/images/accessories_white_web.png">
-                                    <p class="srp-title">Accessories</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="../static/images/breakdown_white_web.png">
-                                    <p class="srp-title">Breakdown</p>
-                                </a>
+                                <a href=""><img src="../static/images/googleplay.png" /></a>
                             </li>
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div class="homepage-coupon-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="featured-deals">
-                            <h4 class="deals-heading">Featured Deals</h4>
-                            <p class="deals-sub-heading">save on the go by claming our awesome deals</p>
-                            <span class="underline"></span>
-                            <ul class="pitzop-carousel owl-carousel clearfix">
-                                <li class="">
-                                    <a href="">
-                                        <div class="deal-slide washing">
-                                            <p class="offer-name">City Motors & services</p>
-                                            <span class="flat-discount flat">Rs 200 Off</span>
-                                            <div class="coupon-detail-wrapper">
-                                                <p class="coupon-detail">Flat discount on car washing</p>
-                                                <p class="coupon-location">Sector 10, Noida</p>
-                                                <p class="terms-condition">*T&C Apply</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="deal-slide polishing">
-                                            <p class="offer-name">City Motors & services</p>
-                                            <span class="flat-discount percentage">20% OFF</span>
-                                            <div class="coupon-detail-wrapper">
-                                                <p class="coupon-detail">Flat discount on car washing</p>
-                                                <p class="coupon-location">Sector 10, Noida</p>
-                                                <p class="terms-condition">*T&C Apply</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="">
-                                        <div class="deal-slide coating">
-                                            <p class="offer-name">City Motors & services</p>
-                                            <span class="flat-discount flat">20% OFF</span>
-                                            <div class="coupon-detail-wrapper">
-                                                <p class="coupon-detail">Flat discount on car washing</p>
-                                                <p class="coupon-location"><span class=""></span>Sector 10, Noida</p>
-                                                <p class="terms-condition">*T&C Apply</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="deal-slide washing">
-                                            <p class="offer-name">City Motors & services</p>
-                                            <span class="flat-discount flat">20% OFF</span>
-                                            <div class="coupon-detail-wrapper">
-                                                <p class="coupon-detail">Flat discount on car washing</p>
-                                                <p class="coupon-location"><span class=""></span>Sector 10, Noida</p>
-                                                <p class="terms-condition">*T&C Apply</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="about-us-section">
-                <div class="container">
-                    <div class="row">
-                        <h4 class="deals-heading">About Us</h4>
-                        <p class="about-detail">At Pitzop, Our mission is to simplify automobile up-keep by enabling handshake between automobile owners and service providers. At Pitzop, Our mission is to simplify automobile up-keep by enabling handshake between automobile owners and service providers. At Pitzop, Our mission is to simplify automobile up-keep by enabling handshake between automobile owners and service providers. At Pitzop, Our mission is to simplify automobile up-keep by enabling handshake between automobile owners and service providers.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="sectional-grid">
-                <div class="container">
-                    <div class="row">
-                        <h4 class="deals-heading">Find</h4>
-                        <p class="deals-sub-heading">Search Easily for providers of car service repair, accessories, wheels, batteries and fuel stations</p>
-                        <span class="underline"></span>
-                        <div class="sectional-navigation">
-                            <ul class="clearfix">
-                                <li><a class="active" href="#">Featured</a></li>
-                                <li><a href="#">Service & Repair</a></li>
-                                <li><a href="#">Fuel</a></li>
-                                <li><a href="#">Wheels</a></li>
-                                <li><a href="#">Accessories</a></li>
-                            </ul>
-                        </div>
-                        <div class="category-section">
-                            <div class="midWrpper active">
-                                <div class="featured_ervices">
-                                    <div class="container">
-                                        <div class="services">
-                                            <div class="row">
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/fuel-stations">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/fuel-stations">
-                                                                <img width="75px" class="lazy" data-original="../static/images/icons/fuel_station.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Fuel Stations</h2>
-                                                        <p>Locate your nearest Fuel Stations</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/towing">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-services/towing">
-                                                                <img width="75px" class="lazy" data-original="../static/images/ic2.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Towing</h2>
-                                                        <p>Stuck on road with a broken car? Get towing services</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/tyre-puncture-repair">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-services/tyre-puncture-repair">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/tyre_puncture.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Tyre Puncture Repair</h2>
-                                                        <p>Locate service shops to fix your flat tyre</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/full-car-service">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-services/full-car-service">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/full_car_service.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Full Car Service</h2>
-                                                        <p>Give your car the service it deserves!</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="midWrpper">
-                                <div class="featured_ervices">
-                                    <div class="container">
-                                        <div class="services">
-                                            <div class="row">
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/denting-painting">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-services/denting-painting">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/denting.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Denting/Painting</h2>
-                                                        <p>Fix scratches and dents on your vehicle</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/ac-repair">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-services/ac-repair">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/ac_repair.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>AC Repair</h2>
-                                                        <p>Locate service centres to fix your car's air conditioning</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/car-wash">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-services/car-wash">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/car_wash.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Car Wash</h2>
-                                                        <p>Find car washing services nearby!</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/cng-fitting---repairs">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-services/cng-fitting---repairs">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/cng_fitting.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>CNG Fitting & Repairs</h2>
-                                                        <p>Explore CNG fitting and repair services near you</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/full-car-service">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-services/full-car-service">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/full_car_service.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Full Car Service</h2>
-                                                        <p>Give your car the service it deserves!</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/teflon-coating">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-services/teflon-coating">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/teflon.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Teflon Coating</h2>
-                                                        <p>Protect your car's painted finish and brilliant shine</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/mechanical-repairs">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-services/mechanical-repairs">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/mechanical.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Mechanical Repairs</h2>
-                                                        <p>For all mechanical jobs to put your car back in shape</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/accidental-repairs">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-services/accidental-repairs">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/accidental.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Accidental Repairs</h2>
-                                                        <p>Got an injured car? Locate nearest repair centres</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="midWrpper">
-                                <div class="featured_ervices">
-                                    <div class="container">
-                                        <div class="services">
-                                            <div class="row">
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/car-interiors">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-accessories/car-interiors">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/car_interiors.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Car Interiors</h2>
-                                                        <p>Add fancy accessories to improve your car interiors</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/stereo-systems">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-accessories/stereo-systems">
-                                                                <img width="75px" class="lazy" data-original="../static/images/accessory.jpg" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Stereo Systems</h2>
-                                                        <p>For the love of music on the go</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/seat-covers">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-accessories/seat-covers">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/seat_covers.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Seat Covers</h2>
-                                                        <p>Get elegant seat covers for your car</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/central-locking-system">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-accessories/central-locking-system">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/central_locking_system.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Central Locking System</h2>
-                                                        <p>Secure your car from potential threats</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/fog-lamps">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-accessories/fog-lamps">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/fog_lamps.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Fog Lamps</h2>
-                                                        <p>Increase driver's visibility range ahead of the car</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/led-lights">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-accessories/led-lights">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/led_lights.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>LED Lights</h2>
-                                                        <p>Upgrade your vehicle's Lighting with LED headlights</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/floor-mats">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-accessories/floor-mats">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/floor_mats.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Floor Mats</h2>
-                                                        <p>Protect the floor of your car from dirt and salt corrosion</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/gear-locks">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-accessories/gear-locks">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/gear_locks.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Gear Locks</h2>
-                                                        <p>Enhance your car security with gear locks</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="midWrpper">
-                                <div class="featured_ervices">
-                                    <div class="container">
-                                        <div class="services">
-                                            <div class="row">
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/alloy-wheels">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-accessories/alloy-wheels">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/alloy_wheels.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Alloy Wheels</h2>
-                                                        <p>Enhance your car's handling and steering precision</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-accessories/new-tyres">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-accessories/new-tyres">
-                                                                <img width="75px" class="lazy" data-original="../images/icons/new_tyres.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>New Tyres</h2>
-                                                        <p>Buy tube/tubeless tyres for your car</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/wheel-balancing-alignment">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-services/wheel-balancing-alignment">
-                                                                <img width="75px" class="lazy" data-original="../images/icons/wheel_balancing.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Wheel Balancing/Alignment</h2>
-                                                        <p>Extend the service life of tyres and smoother ride experience</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/tyre-puncture-repair">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-services/tyre-puncture-repair">
-                                                                <img width="75px" class="lazy" data-original="../images/icons/tyre_puncture.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Tyre Puncture Repair</h2>
-                                                        <p>Get services to fix your flat tyre</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="midWrpper">
-                                <div class="featured_ervices">
-                                    <div class="container">
-                                        <div class="services">
-                                            <div class="row">
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/petrol-diesel">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/petrol-diesel">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/petrol_diesel.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Petrol/Diesel</h2>
-                                                        <p>Locate your nearest Petrol/Diesel Filling Stations</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/cng-stations">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/cng-stations">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/cng.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>CNG</h2>
-                                                        <p>Locate your nearest CNG Filling Stations</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/puc">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/puc">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/puc.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>PUC</h2>
-                                                        <p>Pollution Under Control Certificate Services</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-sm-6 clearfix browseTile" link="/ncr/car-services/nitrogen-gas-filling">
-                                                    <div class="serviceBox">
-                                                        <div class="serviceIcon">
-                                                            <a href="/ncr/car-services/nitrogen-gas-filling">
-                                                                <img width="75px" class="lazy" data-original="https:../images/icons/nitrogen.png" alt="icon" />
-                                                            </a>
-                                                        </div>
-                                                        <h2>Nitrogen Gas Filling</h2>
-                                                        <p>Nitrogen Gas Filling Services</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="partner-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="partner-inner">
-                            <h4 class="deals-heading">Ours Partners</h4>
-                            <div class="partner-wrapper owl-carousel owl-loaded">
-                                <div class="partner">
-                                    <a href="#"><img class="lazy" data-original="../static/images/allianz_logo.png" /></a>
-                                </div>
-                                <div class="partner">
-                                    <a href="#"><img class="lazy" data-original="../static/images/carnation_logo.png" /></a>
-                                </div>
-                                <div class="partner">
-                                    <a href="#"><img class="lazy" data-original="../static/images/express_logo.png" /></a>
-                                </div>
-                                <div class="partner">
-                                    <a href="#"><img class="lazy" data-original="../static/images/crossroads_logo.png" /></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="add-listing">
-                <div class="container">
-                    <div class="row">
-                        <h5 class="deals-heading">Add your listing</h5>
-                        <p>Join thousands of other shop owners who benefit from having their listing on <strong>pitzop</strong> directory</p>
-                        <button class="pit-button">ADD MY LISTING</button>
-                    </div>
-                </div>
-            </div>
-            <div class="secondary-footer">
-                <div class="container">
-                    <div class="footer-image">
-                        <img class="lazy" data-original="../static/images/screenshot_web.png">
-                    </div>
-                    <div class="footer-info">
-                        <h5 class="get-the-app">Get the app</h5>
-                        <p>Choose your native platform and get started !!</p>
-                        <div class="store-image">
-                            <a href=""><img class="lazy" data-original="../static/images/appstore.png" /></a>
-                            <a href=""><img class="lazy" data-original="../static/images/googleplay.png" /></a>
-                        </div>
-                        <p>Or enter your mobile number and we will send you download link</p>
-                        <div class="user-contact">
-                            <input type="number" name="contact" min="1" max="5" placeholder="Enter mobile number">
-                            <input type="button" value="SEND" />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <footer class="footer">
-                <div class="footer-upper">
-                    <div class="container">
-                    <ul class="company">
-                        <h6>Company</h6>
-                        <li><a href="">About Us</a></li>
-                        <li><a href="">Contact Us</a></li>
-                        <li><a href="">Privacy</a></li>
-                        <li><a href="">Terms</a></li>
-                    </ul>
-                    <ul class="quick-links">
-                        <h6>Quick Links</h6>
-                        <li><a href="">maruti suzuki authorized service centers</a></li>
-                        <li><a href="">Hyundai Authorized service centers</a></li>
-                        <li><a href="">maruti suzuki authorized service centers</a></li>
-                        <li><a href="">Hyundai Authorized service centers</a></li>
-                        <li><a href="">maruti suzuki authorized service centers</a></li>
-                        <li><a href="">Hyundai Authorized service centers</a></li>
-                        <li><a href="">maruti suzuki authorized service centers</a></li>
-                        <li><a href="">Hyundai Authorized service centers</a></li>
-                    </ul>
-                    <ul class="cities">
-                        <h6>Cities</h6>
-                        <li><a href="">Delhi</a></li>
-                        <li><a href="">Noida</a></li>
-                        <li><a href="">Gurugram</a></li>
-                        <li><a href="">Banglore</a></li>
-                        <li><a href="">Delhi</a></li>
-                        <li><a href="">Noida</a></li>
-                        <li><a href="">Gurugram</a></li>
-                        <li><a href="">Banglore</a></li>
-                    </ul>
-                    <ul class="download store-image">
-                    <h6>Download App</h6>
-                        <li><a href=""><img class="lazy" data-original="../static/images/appstore.png" /></a></li>
-                        <li><a href=""><img class="lazy" data-original="../static/images/googleplay.png" /></a></li>
-                    </ul>    
-                        
-                    </div>
-                </div>
                 <div class="footer-lower">
                     <div class="container">
-                        <div class="foot-logo"><img class="lazy" data-original="../static/images/logo_white.png"></div>
+                        <div class="foot-logo"><img src="../static/images/logo_white.png"></div>
                         <div class="connect">
                             <p>Connect with us</p>
-                            <span class="social social-facebook"><img class="lazy" data-original="../static/images/white-fb.png"></span>
-                            <span class="social social-twitter"><img class="lazy" data-original="../static/images/white-twitter.png"></span>
+                            <span class="social social-facebook"><img src="../static/images/white-fb.png"></span>
+                            <span class="social social-twitter"><img  src="../static/images/white-twitter.png"></span>
                         </div>
-                        <p> © 2017 Pitzop. All rights reserved. Terms of Use Privacy policy</p>
+                        <p> Â© 2017 Pitzop. All rights reserved. Terms of Use Privacy policy</p>
                     </div>
                 </div>
             </footer>
@@ -848,6 +892,9 @@
     <script>
     function customInitMap() {};
     </script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMoJJtZoDkPi03wz345c66l80glcEjBv0&sensor=false&libraries=places&callback=initMap&region=IN" async defer></script>  -->
+    <script type="text/javascript" data-main="../static/js/main" src="../src/js/vendor/requirejs/require.js"></script>
     <!-- <script type="text/javascript" src="../static/js/vendor/jquery.min.js"></script>
     <script type="text/javascript" src="../static/js/vendor/holder.min.js"></script>
     <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
@@ -865,9 +912,8 @@
     <script type="text/javascript" src="../static/js/owl.carousel_v2.js"></script>
     <script>
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMoJJtZoDkPi03wz345c66l80glcEjBv0&sensor=false&libraries=places&callback=initMap&region=IN" async defer></script> -->
-    <script type="text/javascript" data-main="../static/js/main" src="../src/js/vendor/requirejs/require.js"></script>
-    <!-- <script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMoJJtZoDkPi03wz345c66l80glcEjBv0&sensor=false&libraries=places&callback=initMap&region=IN" async defer></script>
+    <script>
     $(function() {
         $(".browseTile").on("click", function(event) {
             window.location = $(this).attr('link');
@@ -876,8 +922,9 @@
     jQuery(document).ready(function($) {
         "use strict";
         $('.pitzop-carousel').owlCarousel({
-            loop: true,
+            loop: false,
             nav: true,
+            rewind:true,
             responsive: {
                 0: {
                     items: 1

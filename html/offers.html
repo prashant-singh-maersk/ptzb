@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="../static/css/step4.css" />
     <link rel="stylesheet" type="text/css" href="../static/css/editPageCSS_v1.css" />
     <link rel="stylesheet" type="text/css" href="../static/css/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/header.css" />
     <!-- <link rel="stylesheet" type="text/css" href="../static/css/owl.theme.default.css" /> -->
     <!--[if (gt IE 8) | (IEMobile)]><!-->
     <!--<![endif]-->
@@ -61,41 +62,25 @@
     </div>
     <div id="outer-wrap">
         <div id="inner-wrap">
-            <div id="bar">
+            <div id="header-wrapper">
                 <header id="top" role="banner">
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12 col-sm-2 col-md-2">
                                 <a class="nav-btn" id="nav-open-btn" href="#nav">&nbsp;</a>
                                 <a class="logo" href="/" title="Pitzop home">
-                                    <img src="../static/images/logo-main.png" alt="Pitzop">
+                                    <img src="../static/images/logo_white.png" alt="Pitzop">
                                 </a>
                                 <div class="SearchIcon">
                                     <a href="javascript:void(0)" class="searchIcon glyphicon glyphicon-search"></a>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-10 col-md-6">
+                            <div class="col-xs-12 col-sm-10 col-md-5">
                                 <div class="header-menu">
                                     <div class="pull-left">
-                                        <!-- 
-                            <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <a>Featured
-                                    <span class="caret"></span>
-                                    </a>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/offers">All Offers</a></li>
-                                    <li><a href="/offers-on-car-service-and-repairs">Service & Repair</a></li>
-                                    <li><a href="/offers-on-car-accessories">Accessories</a></li>
-                                    <li><a href="/offers-on-tyres-and-wheels">Wheels</a></li>
-                                    <li><a href="/offers-on-car-battery">Batteries</a></li>
-                                </ul>
-                            </div>
-                            -->
                                         <div class="btn-group" role="group">
                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <a>Offers
+                                                <a class="nav-link">SERVICES
                                     <span class="caret"></span>
                                     </a>
                                             </button>
@@ -108,73 +93,54 @@
                                             </ul>
                                         </div>
                                         <div class="btn-group" role="group">
-                                            <a class="nav-link" href="/diagnostic">Diagnostics</a>
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <a class="nav-link">OFFERS
+                                    <span class="caret"></span>
+                                    </a>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="/offers">All Offers</a></li>
+                                                <li><a href="/offers-on-car-service-and-repairs">Service & Repair</a></li>
+                                                <li><a href="/offers-on-car-accessories">Accessories</a></li>
+                                                <li><a href="/offers-on-tyres-and-wheels">Wheels</a></li>
+                                                <li><a href="/offers-on-car-battery">Batteries</a></li>
+                                            </ul>
                                         </div>
                                         <div class="btn-group" role="group">
-                                            <a class="nav-link" href="/quotes/add">Get a Quote</a>
+                                            <a class="nav-link" href="/quotes/add">DIAGNOSTICS</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-4">
+                            <div class="col-xs-12 col-sm-12 col-md-5">
                                 <div class="header-menu">
+                                    <div class="btn-group" role="group">
+                                        <a class="nav-link" href="/quotes/add">BLOG</a>
+                                    </div>
+                                    <div class="btn-group get-quote" role="group">
+                                        <a class="nav-link" href="/quotes/add">GET A QUOTE</a>
+                                    </div>
                                     <div class="btn-group" role="group" aria-label="...">
-                                        <div class="btn-group pull-right" role="group">
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span>
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a class="nav-link"><span>
                                             <img class="header-image" src="../static/images/img_default_user.png"/>
-                                        </span> Prashant <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li> <a href="/quotes/myquotes"><i class="glyphicon glyphicon-duplicate"></i> My Quotes</a> </li>
-                                                <li> <a href="/profile/view" id="edit-profilelink"><i class="glyphicon glyphicon-list"></i> My Cars</a> </li>
-                                                <li> <a href="#" class="edit-link"><i class="glyphicon glyphicon-user"></i> Edit Profile</a> </li>
-                                                <li class="divider"></li>
-                                                <li> <a href="/logout"><i class="glyphicon glyphicon-log-out"></i> LogOut</a> </li>
-                                            </ul>
-                                        </div>
-                                        <div class="search_info search_icon pull-right">
-                                            <a href="javascript:void(0)" class="searchIcon">
-                                                <img src="../static/images/search_img.png" alt="search" />
-                                                <span> Search</span>
-                                            </a>
-                                        </div>
+                                        </span> PRASHANT
+                                    <span class="caret"></span>
+                                    </a>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li> <a href="/quotes/myquotes"><i class="glyphicon glyphicon-duplicate"></i> My Quotes</a> </li>
+                                            <li> <a href="/profile/view" id="edit-profilelink"><i class="glyphicon glyphicon-list"></i> My Cars</a> </li>
+                                            <li> <a href="#" class="edit-link"><i class="glyphicon glyphicon-user"></i> Edit Profile</a> </li>
+                                            <li class="divider"></li>
+                                            <li> <a href="/logout"><i class="glyphicon glyphicon-log-out"></i> LogOut</a> </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="container">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-10 col-md-12">
-                                        <form id="searchForm" method="get" class="searchForm searchTop">
-                                            <div class="header-select">
-                                                <div class="input-group">
-                                                    <span class="input-group-btn">
-                <button id="currLocation" class="currLocation btn btn-default" type="button">
-                    <span class="glyphicon glyphicon-map-marker" title="detect current location" aria-hidden="true"></span>
-                                                    </button>
-                                                    </span>
-                                                    <input class="form-control location_suggetion" id="location" type="text" placeholder="location" name="location" value="NOIDA">
-                                                </div>
-                                            </div>
-                                            <div class="header-input">
-                                                <div class="input-group">
-                                                    <div class="inputsearch">
-                                                        <input class="form-control" id="suggest" type="text" placeholder="Find anything for your car..." name="q" value="">
-                                                        <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
-                                                    </div>
-                                                    <span class="input-group-btn">
-                <button class="btn btn-default" type="submit">
-                    <span class="search_text">Search</span>
-                                                    </button>
-                                                    </span>
-                                                </div>
-                                                <!-- /input-group -->
-                                            </div>
-                                            <input id="city" type="hidden" name="city" value="noida">
-                                            <input id="lat" type="hidden" name="lat" value="">
-                                            <input id="long" type="hidden" name="lon" value="">
-                                            <input class="pageNo" type="hidden" name="p" value="1">
-                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -218,7 +184,7 @@
             <div class="deals_In2">
                 <main class="clearfix">
                     <div class="hero-section-wrapper">
-                        <div class="container-fliud">
+                        <div class="container">
                             <div class="hero-section">
                                 <h2 class="hero-header">offers</h2>
                                 <p class="hero-detail">Get great deals around you under various categories to sav on the go</p>
@@ -229,21 +195,21 @@
                         <div class="container">
                             <ul class="clearfix">
                                 <li class="">
-                                    <a href=""><img src="../static/images/servicenoffers.png" alt="services and repair" title="service and repair">
+                                    <a href=""><img src="../static/images/servicenrepair_web.png" alt="services and repair" title="service and repair">
                                         <span class="offer-category">Services & Repairs</span><span class="offer-number">12 Offers</span>
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a href=""><img src="../static/images/batteries.png"><span class="offer-category">Batteries</span><span class="offer-number">12 Offers</span></a>
+                                    <a href=""><img src="../static/images/batteries_web.png"><span class="offer-category">Batteries</span><span class="offer-number">12 Offers</span></a>
                                 </li>
                                 <li class="">
-                                    <a href=""><img src="../static/images/wheels.png"><span class="offer-category">Wheels</span><span class="offer-number">12 Offers</span></a>
+                                    <a href=""><img src="../static/images/wheels_web.png"><span class="offer-category">Wheels</span><span class="offer-number">12 Offers</span></a>
                                 </li>
                                 <li class="">
-                                    <a href=""><img src="../static/images/accessories_offer.png"><span class="offer-category">Accessories</span><span class="offer-number">12 Offers</span></a>
+                                    <a href=""><img src="../static/images/accessories_web.png"><span class="offer-category">Accessories</span><span class="offer-number">12 Offers</span></a>
                                 </li>
                                 <li class="">
-                                    <a href=""><img src="../static/images/others.png" alt="services and repair" title="service and repair">
+                                    <a href=""><img src="../static/images/other_web.png" alt="services and repair" title="service and repair">
                                         <span class="offer-category">Others</span><span class="offer-number">12 Offers</span>
                                     </a>
                                 </li>
@@ -306,7 +272,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="around-deals">
+                                <div class="featured-deals">
                                     <h4 class="deals-heading">Deals around you</h4>
                                     <ul class="owl-carousel">
                                         <li class="">
@@ -494,7 +460,6 @@
     <script type="text/javascript" src="../static/js/vendor/jquery.lazyload.min.js"></script>
     <script type="text/javascript" src="../static/js/owl.carousel_v2.min.js"></script>
     <script>
-    $('#bar').scrollFix();
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMoJJtZoDkPi03wz345c66l80glcEjBv0&sensor=false&libraries=places&callback=initMap&region=IN" async defer></script>
     <script>
@@ -515,6 +480,20 @@
             1000: {
                 items: 1
             }
+        }
+    });
+    var $body=$('body')
+    $(window).on('scroll', function() {
+        if ($(this).scrollTop() === 0) {
+            $body.removeClass('scrolling');
+        }
+        else{
+                if($body.hasClass('scrolling')){
+                    return;
+                }
+                else{
+                    $body.addClass('scrolling')
+                }
         }
     });
     </script>
