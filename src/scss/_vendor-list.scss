@@ -1,0 +1,44 @@
+.vendor-list{
+	.col-split{
+		background-color: $body-background;
+		margin: 10px;
+	}
+}
+.vendor-container{
+	margin:10px 0;
+	ul{
+		max-height: 5000px;
+		transition: max-height 500ms cubic-bezier(1, 0, 0, 1);
+		overflow: hidden;
+	}
+}
+.vendor-container.pcollapse{
+	ul{
+		max-height: 0;
+		transition: max-height 500ms cubic-bezier(1, 0, 0, 1);
+	}
+}
+.vendor-type-heading{
+	background-color: $heading-background;
+	margin-top: 0;
+	padding: 10px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 23px;
+}
+
+.related-link{
+	width:100%;
+	@include tablet-landscape-desktop-only() {
+		width:33.33%;
+	}
+	a{
+		padding: 10px;
+		display: block;
+		background: $white;
+		border:1px solid $heading-background;
+		white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	}
+}

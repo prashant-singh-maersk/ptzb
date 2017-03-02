@@ -45,34 +45,33 @@
     ga('send', 'pageview');
     </script> -->
     <style>
-    .tabbed-menu {
-        padding: 0 15px;
+    .plug {
+        position: relative;
     }
-    
     .frame {
         float: left;
         padding: 0 15px;
     }
-    
     .tabbed-frame {
         position: absolute;
         width: 100%;
         left: 0;
-        height: 50px;
         background: red;
+        z-index: 0;
+        opacity: 0;
     }
-    
-    .plug {
-        position: relative;
+    .tabbed-frame.active{
+        z-index: 100;
+        opacity: 1;
     }
-    
+    .tabbed-menu {
+        padding: 0 15px;
+    }
     .tabbed-menu.active {
         color: green;
         background: red;
     }
-    .tabbed-frame.active{
-        z-index: 100;
-    }
+    
     </style>
 </head>
 
@@ -82,15 +81,15 @@
             <div class="modal-content" id="remoteModalContent">pz</div>
         </div>
     </div>
-    <ul class="plug">
-        <li>1001</li>
+    <!-- <ul class="plug">
+        <li><img src="../static/images/service_white_web.png"></li>
         <li>1002</li>
         <li>1003</li>
         <li>1004</li>
         <li>1005</li>
         <li>1006</li>
-    </ul>
-    <div id="outer-wrap" style="display: none;">
+    </ul> -->
+    <div id="outer-wrap" style="">
         <div id="inner-wrap" class="clearfix">
             <div id="header-wrapper">
                 <header id="top" role="banner">
@@ -394,7 +393,7 @@
                                 </ul>
                             </div>
                             <div class="category-section">
-                                <div class="midWrpper active">
+                                <div class="midWrpper" data-heading="Featured">
                                     <div class="featured_ervices">
                                         <div class="container">
                                             <div class="services">
@@ -448,7 +447,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="midWrpper">
+                                <div class="midWrpper" data-heading="Service&Repair">
                                     <div class="featured_ervices">
                                         <div class="container">
                                             <div class="services">
@@ -523,7 +522,7 @@
                                                         <div class="serviceBox">
                                                             <div class="serviceIcon">
                                                                 <a href="/ncr/car-services/mechanical-repairs">
-                                                                    <img width="75px" class=d ata-original="https:../images/icons/mechanical.png" alt="icon" />
+                                                                    <img width="75px" class data-original="https:../images/icons/mechanical.png" alt="icon" />
                                                                 </a>
                                                             </div>
                                                             <h2>Mechanical Repairs</h2>
@@ -546,7 +545,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="midWrpper">
+                                <div class="midWrpper" data-heading="Fuel">
                                     <div class="featured_ervices">
                                         <div class="container">
                                             <div class="services">
@@ -644,7 +643,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="midWrpper">
+                                <div class="midWrpper" data-heading="Wheels">
                                     <div class="featured_ervices">
                                         <div class="container">
                                             <div class="services">
@@ -698,7 +697,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="midWrpper">
+                                <div class="midWrpper" data-heading="Accessories">
                                     <div class="featured_ervices">
                                         <div class="container">
                                             <div class="services">

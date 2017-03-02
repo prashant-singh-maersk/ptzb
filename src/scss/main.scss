@@ -1,4 +1,4 @@
-@import "reset";
+/* @import "reset"; */
 
 // vendor scss
 
@@ -13,7 +13,10 @@
 
 @import "variables";
 @import "fonts";
-@import "sprite";
-@import "common";
+
+/* @import "sprite"; */
+/* @import "common"; */
 @import "custom_v10";
 @import "vendor/owl.carousel.scss";
+@import "vendor-list";
+@import "components/filter";

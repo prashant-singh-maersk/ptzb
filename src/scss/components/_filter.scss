@@ -1,0 +1,243 @@
+.MainFilter .panel-heading {
+    margin-bottom: 0;
+}
+
+.panel-title {
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.filter-label {
+    color: $text-grey;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.filtertop .new-list {
+    background: $body-background;
+    border: 1px solid #eeefef;
+}
+
+.filtertop .new-list ul li .addtype {
+    display: block;
+    overflow: hidden;
+    padding-left: 0px;
+}
+
+.filtertop .new-list ul li .addtype span {
+    display: block;
+    color: #8c8c8b;
+    font-size: 15px;
+    float: left;
+    width: 48%;
+    padding: 3px 20px 3px 5px;
+    background: $white;
+    border: 1px solid #eeefef;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    margin: 4px 0;
+    &:nth-child(2n-1) {
+        margin-right: 4%;
+    }
+}
+
+.filtertop .new-list ul li a {
+    color: #009846;
+    font-size: 12px;
+    position: absolute;
+    top: 51%;
+    margin: 0;
+    transform: translateY(-50%);
+    right: 4px;
+}
+
+.custom-checkbox > [type="checkbox"]:not(:checked) + label:before,
+.custom-checkbox > [type="checkbox"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -9px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #009846;
+    background: #ffffff;
+    border-radius: 0;
+}
+
+.MainFilter .custom-checkbox > [type="checkbox"]:not(:checked) + label:after,
+.MainFilter .custom-checkbox > [type="checkbox"]:checked + label:after {
+    font: normal normal normal 12px/1 'Glyphicons Halflings';
+    content: '\e013';
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    width: 14px;
+    height: 14px;
+    font-size: 8px;
+    left: 1px;
+    text-align: center;
+    padding-top: 2px;
+    color: #fff;
+    background: #009846;
+    transition: all .2s;
+}
+
+.MainFilter .inner-right-box .custom-checkbox label {
+    color: #898989;
+    margin-bottom: 5px !important;
+}
+
+.filter-search {
+    float: left;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #eeefef;
+    background-color: $body-background;
+    margin-bottom: 10px;
+    input {
+        width: 100%;
+        padding: 0 0 0 15px;
+        border: 1px solid #eeefef;
+    }
+}
+
+.custom-slider {
+    float: left;
+    width: 100%;
+    margin-bottom: 40px;
+    position: relative;
+    &:after,
+    &:before {
+        content: " ";
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        border: 1px solid #898989;
+        display: inline-block;
+        position: absolute;
+        bottom: -7px;
+        background: $white;
+        display: none;
+        
+    }
+    &:after {
+        left: 0
+    }
+    &:before {
+        right: 0;
+    }
+    label {
+        &:after,
+        &:before {
+            display: inline-block;
+            position: absolute;
+            bottom: -27px;
+
+        }
+        &:after {
+            left: 0;
+            content: attr(data-min);
+        }
+        &:before {
+            right: 0;
+            content: attr(data-max);
+        }
+    }
+    .distance-value {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+    input[type=range] {
+        -webkit-appearance: none;
+        width: 100%;
+        margin: 20px 0 0 0;
+    }
+    input[type=range]:focus {
+        outline: none;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        cursor: pointer;
+        height: 1px;
+        background: #898989;
+        &:after {
+            content: " ";
+            display: block;
+            height: 20px;
+            width: 20px;
+            background: green;
+        }
+    }
+    input[type=range]::-webkit-slider-thumb {
+        border: 1px solid #009846;
+        height: 26px;
+        width: 26px;
+        border-radius: 15px;
+        background: #009846;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -12.7px;
+        z-index: 15;
+    }
+    input[type=range]::-moz-range-track {
+        width: 100%;
+        cursor: pointer;
+        height: 1px;
+        background: #898989;
+    }
+    input[type=range]::-moz-range-thumb {
+        border: 1px solid #009846;
+        height: 26px;
+        width: 26px;
+        border-radius: 15px;
+        background: #009846;
+        cursor: pointer;
+        margin-top: -12.7px;
+    }
+    input[type=range]::-ms-track {
+        width: 100%;
+        height: 1px;
+        cursor: pointer;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+    }
+    input[type=range]::-ms-fill-lower {
+        background: rgba(42, 100, 149, 0.78);
+        border: 0.2px solid #010101;
+        border-radius: 2.6px;
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+    input[type=range]::-ms-fill-upper {
+        background: rgba(48, 113, 169, 0.78);
+        border: 0.2px solid #010101;
+        border-radius: 2.6px;
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+    input[type=range]::-ms-thumb {
+        box-shadow: 0.9px 0.9px 1px #000031, 0px 0px 0.9px #00004b;
+        border: 1.8px solid #00001e;
+        height: 26px;
+        width: 26px;
+        border-radius: 15px;
+        background: #ffffff;
+        cursor: pointer;
+        height: 1px;
+    }
+    input[type=range]:focus::-ms-fill-lower {
+        background: rgba(48, 113, 169, 0.78);
+    }
+    input[type=range]:focus::-ms-fill-upper {
+        background: rgba(54, 126, 189, 0.78);
+    }
+}
+
+.pcollapse {
+    max-height: 0px;
+    overflow: hidden;
+}
