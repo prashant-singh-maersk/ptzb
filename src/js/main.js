@@ -27,15 +27,15 @@ require.config({
         'owlCarousel': '../js/vendor/owl.carousel/dist/owl.carousel',
         'jquery': 'empty:',
         'lazyLoad': '../js/vendor/jquery_lazyload/jquery.lazyload',
-        'pitzop': '../js/modules/pitzop',
+        'filter': '../js/modules/filter',
         //'placepicker':'http://www.jqueryscript.net/demo/jQuery-Location-Autocomplete-with-Google-Maps-Places-Library-Placepicker/src/js/jquery.placepicker',
         'bootstrap': '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min',
         'tabbedWindow': '../js/modules/tabbedWindow',
     }
 });
 
-define(['pitzop', 'lazyLoad', 'bootstrap', 'tabbedWindow'], function(pitzop, lazyLoad, bootstrap, tabbedWindow) {
-    console.log(pitzop.initialize());
+define(['filter', 'lazyLoad', 'bootstrap', 'tabbedWindow'], function(pitzop, lazyLoad, bootstrap, tabbedWindow) {
+    pitzop.initialize();
     $('.category-section').tabbedWindow({
         menuElement: 'a',
         conserveHistory: true,

@@ -8,12 +8,6 @@
         requireJsOptimize = r('gulp-requirejs-optimize'),
         imageop = r('gulp-imagemin'),
         cssBase64 = r('gulp-css-base64'),
-        //gzip = r('gulp-gzip'),
-        /*options = {
-            config: 'scripts/config.js',
-            exclude: ['underscore', 'jquery'],
-            transitive: true
-        },*/
         base = {
             src: 'src/',
             dist: 'static/',
@@ -81,7 +75,7 @@
         return spriteData;
     });
 
-    gulp.task('css',/* ['sprite'], */function() {
+    gulp.task('css',function() {
         return gulp.src(paths.main.sass)
             .pipe(scss({ errLogToConsole: true }))
             .pipe(gulp.dest(paths.dist.css))
@@ -93,11 +87,7 @@
 
     gulp.task('image-optimize', function() {
         gulp.src(paths.src.img)
-            .pipe(imageop({
-                optimizationLevel: 5,
-                progressive: true,
-                interlaced: true
-            }))
+            .pipe(imageop())
             .pipe(gulp.dest(paths.dist.img))
     });
 
