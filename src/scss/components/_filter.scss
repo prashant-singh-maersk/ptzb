@@ -295,7 +295,7 @@
         position: static;
         height: auto;
         overflow-y: auto;
-	    overflow-x: hidden;
+        overflow-x: hidden;
         padding: 0;
     }
     &.in {
@@ -351,13 +351,46 @@
 }
 
 .top-title {
-    h4,p {
+    h4,
+    p {
         font-size: 20px;
     }
-
-
+    h4 {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        flex-direction: column;
+        @include tablet-landscape-desktop-only() {
+            flex-direction: row;
+        }
+    }
 }
 
 .left-box .pagination-2 {
     clear: both;
 }
+
+.vendor-type-heading {
+    select {
+        padding: 3px;
+    }
+}
+
+.more-tuples {
+    position: absolute;
+    bottom: -38px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 35px;
+    border: 1px solid;
+    &.loading {
+        background: url($loader-gif);
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        border: 0 none;
+        text-indent: -99999px;
+    }
+}
+
+

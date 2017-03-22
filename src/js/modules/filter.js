@@ -11,6 +11,7 @@ define(['jquery', 'owlCarousel'], function($, owlCarousel) {
                 $('.filter-close').on('click', function() {
                     $('.filters a').trigger('click');
                 })
+                getMoreTuples();
             },
             filterSlide = function() {
                 var slider = $('.custom-slider input'),
@@ -23,7 +24,7 @@ define(['jquery', 'owlCarousel'], function($, owlCarousel) {
                     'left': percent + '%',
                     'transform': 'translateX(-' + percent + '%)'
                 })
-                $('.custom-slider input').on('load input change',function() {
+                $('.custom-slider input').on('load input change', function() {
                     var self = $(this);
                     val = self.val();
                     max = parseInt(self.attr('max'));
@@ -38,7 +39,7 @@ define(['jquery', 'owlCarousel'], function($, owlCarousel) {
             },
             filterSearch = function() {
                 var parent, checkbox, value, self, label, count,
-                    toShow, noOfResults, seeMore, seeLess,patt,
+                    toShow, noOfResults, seeMore, seeLess, patt,
                     filter = $('.filter-search input');
                 filter.on('input change', function() {
                     self = $(this);
@@ -49,7 +50,7 @@ define(['jquery', 'owlCarousel'], function($, owlCarousel) {
                     checkbox = $('.custom-checkbox', parent);
                     checkbox.removeClass('less');
                     checkbox.removeClass('pshow');
-                    patt=new RegExp('\\b'+value,'g');
+                    patt = new RegExp('\\b' + value, 'g');
                     $.each(checkbox, function(index, ele) {
                         ele = $(ele);
                         label = $.trim(ele.text().toLowerCase());
@@ -100,6 +101,15 @@ define(['jquery', 'owlCarousel'], function($, owlCarousel) {
             hiddenResults = function(no, parent) {
                 $('.see-mores', parent).text('see more(' + no + ')');
             },
+            removeAppliedFilter = function() {
+                var self = $(this),
+                    targetElement = self.attr('data-id');
+                $('#' + targetElement).trigger('click');
+            },
+            sortByFilter = function() {
+                var value = $(this).val()
+                $('#sort-handle').attr('value', value).trigger('change');
+            },
             carouselInit = function() {
                 $('.pitzop-carousel').owlCarousel({
                     loop: false,
@@ -117,6 +127,17 @@ define(['jquery', 'owlCarousel'], function($, owlCarousel) {
                         }
                     }
                 });
+            },
+            getMoreTuples = function() {
+                var url = 'http://labs.infoedge.com:9315/deals/getTuples',
+                    filterData = $('#filterSearchForm').serialize();
+                $('.more-tuples').on('click', function() {
+
+                    $.post(url, filterData, appendTupples);
+                })
+            },
+            appendTupples = function(data) {
+                $('.left-box').append(data);
             }
         return { initialize: initialize };
     })();
