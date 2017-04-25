@@ -2,7 +2,7 @@
     var gulp = r('gulp'),
         scss = r('gulp-sass'),
         rename = r('gulp-rename'),
-        browserSync = require('browser-sync'),
+        browserSync = r('browser-sync'),
         strip = r('gulp-strip-comments'),
         sprite = r('gulp.spritesmith'),
         requireJsOptimize = r('gulp-requirejs-optimize'),
